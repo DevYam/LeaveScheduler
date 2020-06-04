@@ -1,4 +1,3 @@
-
 window.addEventListener('DOMContentLoaded', (event) => {
     console.log('DOM fully loaded and parsed');
     document.getElementById("submitBtn").addEventListener('click', onSubmitClick);
@@ -11,36 +10,33 @@ window.addEventListener('DOMContentLoaded', (event) => {
         var psw = document.getElementById("psw").value;
 
         var jsonObject = {
-            "name" : name,
+            "name": name,
             "emal": email,
-            "role" : role,
-            "pasword" : psw
+            "role": role,
+            "pasword": psw
         }
 
-        console.log(jsonObject);
-        //TODO Pass this jsonObject to the ajax call
+        // console.log(jsonObject);
+        // //TODO Pass this jsonObject to the ajax call
 
-        const dummyData = {
-            "name":"test",
-            "salary":"123",
-            "age":"23"
-        };
+        // const dummyData = {
+        //     "name": "test",
+        //     "salary": "123",
+        //     "age": "23"
+        // };
 
-        const jsonString = JSON.stringify(dummyData);
+        const jsonString = JSON.stringify(jsonObject);
         const xhr = new XMLHttpRequest();
 
-        xhr.onreadystatechange = function() {
+        xhr.onreadystatechange = function () {
             if (xhr.readyState == XMLHttpRequest.DONE) {
-                alert(xhr.responseText);
+                // alert(xhr.responseText);
+                console.log(xhr.responseText);
             }
         }
-        xhr.open("POST", "http://dummy.restapiexample.com/api/v1/create");
+        xhr.open("POST", "https://6331819ebeb5.ngrok.io/register");
         xhr.setRequestHeader("Content-Type", "application/json");
         xhr.send(jsonString);
-
-
-
-
 
 
     }
