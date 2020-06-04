@@ -11,11 +11,11 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
         var jsonObject = {
             "name": name,
-            "emal": email,
+            "email": email,
             "role": role,
-            "pasword": psw
+            "password": psw
         }
-
+    // console.log(jsonObject);
         // console.log(jsonObject);
         // //TODO Pass this jsonObject to the ajax call
 
@@ -26,16 +26,22 @@ window.addEventListener('DOMContentLoaded', (event) => {
         // };
 
         const jsonString = JSON.stringify(jsonObject);
+        // console.log(jsonString);
         const xhr = new XMLHttpRequest();
 
         xhr.onreadystatechange = function () {
             if (xhr.readyState == XMLHttpRequest.DONE) {
                 // alert(xhr.responseText);
-                console.log(xhr.responseText);
+                // console.log(xhr.responseText);
+                var datatext = xhr.responseText;
+                var jsonResponse = JSON.parse(datatext);
+                // console.log("Your id is "+jsonResponse.id);
+                alert("Registration Successful! Your id is "+jsonResponse.id );
             }
         }
         xhr.open("POST", "https://6331819ebeb5.ngrok.io/register");
         xhr.setRequestHeader("Content-Type", "application/json");
+        xhr.setRequestHeader("Access-Control-Allow-Origin",'*');
         xhr.send(jsonString);
 
 
