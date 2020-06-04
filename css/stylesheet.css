@@ -3,8 +3,8 @@
 /*    margin-right:30px;*/
 /*}*/
 
-
-body {
+    body {
+        background-image: url("https://i.ibb.co/x3Lg9J6/bg.jpg");
     font-family: 'Varela Round', sans-serif;
 }
 .modal-login {
