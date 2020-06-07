@@ -3,21 +3,34 @@
 <meta charset="UTF-8">
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="js/managerView.js"></script>
+
+<link rel="stylesheet" href="css/stylesheet.css">
 <style>
     table, th, td {
         border: 1px solid black;
         background: #7fbee7;
+
     }
     table.center {
         margin-left: auto;
         margin-right: auto;
+
     }
 </style>
 <body>
+<div style="display: inline-block; color: #fafafa; width: 100%">
+    <button class="btn btn-warning" style="float: right; margin-top: 7px; margin-right: 15px" onclick="window.location.href='leaveRequest.html'">Apply for leave</button>
+<h2 align="center">Approve Leave Requests</h2>
+
+</div>
+
 
 <div ng-app="myApp" ng-controller="customersCtrl">
 
-    <table>
+    <table style="width: 80%; text-align: center; margin-left: auto; margin-right: auto">
         <tr>
 
             <td>ID</td>
