@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<style>
+    table, th, td {
+        border: 1px solid black;
+        background: #7fbee7;
+    }
+    table.center {
+        margin-left: auto;
+        margin-right: auto;
+    }
+</style>
+<body>
+
+<div ng-app="myApp" ng-controller="customersCtrl">
+
+    <table>
+        <tr>
+
+            <td>ID</td>
+            <td>Name</td>
+            <td>Salary</td>
+            <td>Age</td>
+
+        </tr>
+        <tr ng-repeat="x in employees.data">
+            <td>{{ x.id }}</td>
+            <td>{{ x.employee_name }}</td>
+            <td>{{ x.employee_salary }}</td>
+            <td>{{ x.employee_age }}</td>
+        </tr>
+    </table>
+
+</div>
+
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('customersCtrl', function($scope) {
+
+        var settings = {
+            "url": "http://dummy.restapiexample.com/api/v1/employees",
+            "method": "GET",
+            "timeout": 0,
+            "headers": {
+                "Cookie": "ezoadgid_133674=-1; ezoref_133674=; ezoab_133674=mod16-c; active_template::133674=pub_site.1591512642"
+            },
+        };
+
+        $.ajax(settings).done(function (response) {
+            console.log(response);
+            $scope.employees=response;
+            $scope.$apply();
+        });
+
+    });
+</script>
+
+</body>
+</html>
